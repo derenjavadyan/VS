@@ -1,0 +1,76 @@
+<div class="back-color-gif">
+  <div class="container">
+    <section class="container__hero">
+      <header class="container__header flex">
+        <div class="container__logo-wrap">
+          <div class="container__logo"></div>
+        </div>
+        <div class="container__links">
+          <ul class="container__link-ul">
+            <li class="container__link"><a href="">We do</a></li>
+            <li class="container__link"><a href="">Industry focus</a></li>
+            <li class="container__link"><a href="">Tools & technology</a></li>
+            <li class="container__link"><a href="">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+      <div class="container__menu-social">
+        <div class="container__menu"></div>
+        <div class="container__social">
+          <div class="container__facebook"></div>
+          <div class="container__linkedin"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="back-color">
+  <div class="container__we-do">
+    <div class="container__title-line">
+      <h1 class="container__title">we do</h1>
+    </div>
+    <div class="container__line"></div>
+  </div>
+</div>
+
+<div class="back-color">
+  <div class="container">
+    <section class="container__we-do">
+      <div class="container__service" *ngFor="let name of weDo">
+        <h2 class="container__service-name">
+          {{ name.serviceName | uppercase }}
+        </h2>
+        <div
+          class="container__for-loop"
+          *ngFor="let text of name.serviceParagraphs; let i = index"
+        >
+          <p class="container__service-paragraph">
+            {{ text.paragraph }}
+          </p>
+          <div
+            class="container__service-sign"
+            *ngIf="i !== name.serviceParagraphs.length - 1"
+          ></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="container container__industry-focus">
+  <div class="container__ind-foc-title-line">
+    <h1 class="container__ind-foc-title">industry focus</h1>
+  </div>
+</div>
+<div class="container__ind-foc-line"></div>
+
+<div class="container">
+  <section class="container__ind-foc">
+    <div class="container__focuses"></div>
+    <div class="container__desc">
+      <div class="container__animation"></div>
+      <div class="container__text"></div>
+    </div>
+  </section>
+</div>

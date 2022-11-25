@@ -1,0 +1,189 @@
+@import "../../styles/variables";
+
+//hero section
+.back-color-gif {
+  background-image: url("../../assets/gif/Hero.gif");
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  padding-top: 5.6rem;
+
+  &__hero {
+  }
+
+  &__header {
+  }
+
+  &__logo-wrap {
+    flex: 8;
+  }
+
+  &__logo {
+    background-image: url("../../assets/svg/logo/logo.svg");
+    background-color: $black;
+    height: 15px;
+    width: 166px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__links {
+    flex: 4;
+  }
+
+  &__link:not(:last-child) {
+    padding-bottom: 16px;
+  }
+
+  &__link {
+    color: $white;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__menu-social {
+    margin-top: 25vh;
+  }
+
+  &__menu {
+    background-image: url("../../assets/svg/icons/burger.svg");
+    height: 18px;
+    width: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
+
+  &__menu-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__facebook {
+    background-image: url("../../assets/svg/icons/facebook.svg");
+    height: 24px;
+    width: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
+  &__linkedin {
+    background-image: url("../../assets/svg/icons/linkedin.svg");
+    height: 24px;
+    width: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
+}
+
+//wedo
+.back-color {
+  background-color: $black;
+}
+
+.container {
+  &__title-line {
+    margin-left: 84rem;
+  }
+
+  &__title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8rem;
+    line-height: 9.6rem;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__line {
+    border-bottom: 1px solid $white;
+    width: 114rem;
+  }
+
+  &__service {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__service > * + * {
+    margin-left: 8px;
+  }
+
+  &__service-name {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__service-paragraph {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    text-transform: uppercase;
+    color: $white;
+    opacity: 0.2;
+  }
+
+  .container__for-loop {
+    display: flex;
+    align-items: center;
+  }
+
+  &__service-sign {
+    background-image: url("../../assets/svg/icons/circle.svg");
+    height: 8px;
+    width: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 8px;
+  }
+}
+
+//industry focus
+.container {
+  &__industry-focus {
+    margin-top: 14rem;
+  }
+  &__ind-foc-title-line {
+  }
+  &__ind-foc-title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8rem;
+    line-height: 9.8rem;
+    text-transform: uppercase;
+  }
+  &__ind-foc-line {
+    border-bottom: 1px solid $black;
+    width: 83rem;
+  }
+}

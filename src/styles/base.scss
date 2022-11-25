@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.6;
+
+  ol,
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+
+  a {
+    color: var(--white);
+    &:link,
+    &:visited {
+      display: inline-block;
+      text-decoration: none;
+    }
+  }
+}
+
+.container {
+  overflow: hidden;
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  gap: 24px;
+}
