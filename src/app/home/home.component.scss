@@ -186,4 +186,151 @@
     border-bottom: 1px solid $black;
     width: 83rem;
   }
+
+  &__focuses {
+    flex: 6;
+  }
+
+  &__focus {
+    display: flex;
+    gap: 2.4rem;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: $black;
+  }
+
+  &__desc {
+    flex: 6;
+  }
+
+  &__animation {
+    background-image: url("../../assets/gif/Tube.gif");
+    height: 40rem;
+    width: 85rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 4rem;
+  }
+
+  &__text {
+    display: flex;
+    gap: 24px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $black;
+  }
+
+  &__text-one {
+    flex: 0 0 31%;
+  }
+
+  &__text-two {
+    flex: 0 0 31%;
+  }
+}
+
+// tools and technology
+
+.container {
+  margin-top: 14rem;
+
+  &__tool-tech {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  &__tool-tech-title-line {
+  }
+
+  &__tool-tech-title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8rem;
+    line-height: 9.8rem;
+    text-transform: uppercase;
+  }
+
+  &__tool-tech-box {
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    padding: 0 16px;
+  }
+
+  &__net {
+    background-image: url("../../assets/svg/icons/tools-tech/net.svg");
+    width: 5.3rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__react {
+    background-image: url("../../assets/svg/icons/tools-tech/react.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__js {
+    background-image: url("../../assets/svg/icons/tools-tech/js.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__python {
+    background-image: url("../../assets/svg/icons/tools-tech/pytone.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__c-plus {
+    background-image: url("../../assets/svg/icons/tools-tech/c++.svg");
+    width: 5.3rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__html-css {
+    background-image: url("../../assets/svg/icons/tools-tech/htm-css.svg");
+    width: 10.5rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__php {
+    background-image: url("../../assets/svg/icons/tools-tech/php.svg");
+    width: 5.3rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__laravel {
+    background-image: url("../../assets/svg/icons/tools-tech/laravel.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

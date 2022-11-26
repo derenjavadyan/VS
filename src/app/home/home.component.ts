@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { gsap } from 'gsap';
 
 interface WeDo {
   serviceName: string;
@@ -7,7 +8,6 @@ interface WeDo {
 
 interface serviceParagraphs {
   paragraph: string;
-  dot: string;
 }
 
 @Component({
@@ -22,23 +22,18 @@ export class HomeComponent {
       serviceParagraphs: [
         {
           paragraph: 'Enterprise software development',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Businessprocess automation tools',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'CRM development',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Custrom marketplace & warehouse solutions',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Custrom marketplace & warehouse solutions',
-          dot: '../../assets/svg/icons/circle.svg',
         },
       ],
     },
@@ -47,11 +42,9 @@ export class HomeComponent {
       serviceParagraphs: [
         {
           paragraph: 'Native app development (ios & android)',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Hybrid app development react native',
-          dot: '../../assets/svg/icons/circle.svg',
         },
       ],
     },
@@ -60,19 +53,15 @@ export class HomeComponent {
       serviceParagraphs: [
         {
           paragraph: 'Computer vision',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Video streaming',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Image recognition',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Connected devices',
-          dot: '../../assets/svg/icons/circle.svg',
         },
       ],
     },
@@ -81,11 +70,9 @@ export class HomeComponent {
       serviceParagraphs: [
         {
           paragraph: 'Data analytics & management',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Data science',
-          dot: '../../assets/svg/icons/circle.svg',
         },
       ],
     },
@@ -94,19 +81,15 @@ export class HomeComponent {
       serviceParagraphs: [
         {
           paragraph: 'Technology/architecture consulting',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Business model definition',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'Product roadmap',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'MVP scope definition/documentation',
-          dot: '../../assets/svg/icons/circle.svg',
         },
       ],
     },
@@ -115,13 +98,51 @@ export class HomeComponent {
       serviceParagraphs: [
         {
           paragraph: 'Embedded software',
-          dot: '../../assets/svg/icons/circle.svg',
         },
         {
           paragraph: 'System integration',
-          dot: '../../assets/svg/icons/circle.svg',
         },
       ],
     },
   ];
+
+  //hover
+  trans(e: boolean) {
+    let tl = gsap.timeline();
+
+    if (e === true) {
+      tl.to('.container__tool-tech-box', {
+        duration: 1,
+        backgroundColor: '#2929cc',
+      }).to(
+        '.containercontaimer__box-title, .container__tool-tech-desc',
+        {
+          color: '#fff',
+        },
+        '<'
+      );
+    } else {
+      gsap.to('.container__tool-tech-box', {
+        duration: 1,
+        backgroundColor: '#fff',
+        color: '#000',
+      });
+    }
+  }
 }
+
+// trans(e: boolean) {
+//   if (e === true) {
+//     gsap.to('.container__tool-tech-box', {
+//       duration: 1,
+//       backgroundColor: '#2929cc',
+//       color: '#fff',
+//     });
+//   } else {
+//     gsap.to('.container__tool-tech-box', {
+//       duration: 1,
+//       backgroundColor: '#fff',
+//       color: '#000',
+//     });
+//   }
+// }
