@@ -36,7 +36,7 @@
 
 <div class="back-color">
   <div class="container">
-    <section class="container__we-do">
+    <section class="container__we-do-section">
       <div class="container__service" *ngFor="let name of weDo">
         <h2 class="container__service-name">
           {{ name.serviceName | uppercase }}
@@ -110,22 +110,22 @@
 </div>
 
 <div class="container">
-  <section class="container container__tool-tech">
+  <section class="container container__tool-tech-main">
     <div
       class="container__tool-tech-box flex"
-      (mouseover)="trans(true)"
-      (mouseleave)="trans(false)"
+      (mouseenter)="fadeIn()"
+      (mouseleave)="fadeOut()"
     >
       <p class="containercontaimer__box-title">Programming languages</p>
       <div class="container__tool-tech-icons flex">
-        <div class="container__net"></div>
-        <div class="container__react"></div>
-        <div class="container__js"></div>
-        <div class="container__python"></div>
-        <div class="container__c-plus"></div>
-        <div class="container__html-css"></div>
-        <div class="container__php"></div>
-        <div class="container__laravel"></div>
+        <div class="techIcon container__net"></div>
+        <div class="techIcon container__react"></div>
+        <div class="techIcon container__js"></div>
+        <div class="techIcon container__python"></div>
+        <div class="techIcon container__c-plus"></div>
+        <div class="techIcon container__html-css"></div>
+        <div class="techIcon container__php"></div>
+        <div class="techIcon container__laravel"></div>
       </div>
       <p class="container__tool-tech-desc">
         .NET/.NET Core, React JS, JS, Python, C++, PHP, HTML/CSS, Laravel

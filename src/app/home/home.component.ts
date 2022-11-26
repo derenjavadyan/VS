@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { gsap } from 'gsap';
 
 interface WeDo {
@@ -15,7 +15,7 @@ interface serviceParagraphs {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   public weDo: WeDo[] = [
     {
       serviceName: 'FULL PRODUCT DEVELOPMENT',
@@ -107,42 +107,39 @@ export class HomeComponent {
   ];
 
   //hover
-  trans(e: boolean) {
-    let tl = gsap.timeline();
 
-    if (e === true) {
-      tl.to('.container__tool-tech-box', {
-        duration: 1,
+  tl = gsap.timeline();
+
+  techIcon = gsap.set('.techIcon', {
+    autoAlpha: 0,
+  });
+
+  ngOnInit() {}
+
+  fadeIn() {
+    this.tl
+      .to('.container__tool-tech-box', {
         backgroundColor: '#2929cc',
-      }).to(
+      })
+      .to(
         '.containercontaimer__box-title, .container__tool-tech-desc',
         {
           color: '#fff',
         },
         '<'
+      )
+      .to(
+        '.techIcon',
+        {
+          autoAlpha: 1,
+        },
+        '<'
       );
-    } else {
-      gsap.to('.container__tool-tech-box', {
-        duration: 1,
-        backgroundColor: '#fff',
-        color: '#000',
-      });
-    }
+
+    this.tl.restart();
+  }
+
+  fadeOut() {
+    this.tl.reverse();
   }
 }
-
-// trans(e: boolean) {
-//   if (e === true) {
-//     gsap.to('.container__tool-tech-box', {
-//       duration: 1,
-//       backgroundColor: '#2929cc',
-//       color: '#fff',
-//     });
-//   } else {
-//     gsap.to('.container__tool-tech-box', {
-//       duration: 1,
-//       backgroundColor: '#fff',
-//       color: '#000',
-//     });
-//   }
-// }
