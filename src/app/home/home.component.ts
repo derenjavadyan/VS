@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { timeStamp } from 'console';
 import { gsap } from 'gsap';
+import { AnimationService } from '../../service/animations/animation.service';
 
 interface WeDo {
   serviceName: string;
@@ -106,40 +108,94 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  //hover
-
-  tl = gsap.timeline();
-
-  techIcon = gsap.set('.techIcon', {
-    autoAlpha: 0,
-  });
-
+  constructor(private animation: AnimationService) {}
+  tlOne = gsap.timeline();
+  tlTwo = gsap.timeline();
+  tlThree = gsap.timeline();
   ngOnInit() {}
 
-  fadeIn() {
-    this.tl
-      .to('.container__tool-tech-box', {
-        backgroundColor: '#2929cc',
-      })
-      .to(
-        '.containercontaimer__box-title, .container__tool-tech-desc',
-        {
-          color: '#fff',
-        },
-        '<'
-      )
-      .to(
-        '.techIcon',
-        {
-          autoAlpha: 1,
-        },
-        '<'
-      );
+  fadeIn(id: number) {
+    if (id === 1) {
+      let background = '.firstRow';
+      let text = '.fistRowText';
+      let icon = '.iconOne';
+      this.tlOne
+        .to(background, {
+          backgroundColor: '#2929cc',
+        })
+        .to(
+          text,
+          {
+            color: '#fff',
+          },
+          '<'
+        )
+        .to(
+          icon,
+          {
+            autoAlpha: 1,
+          },
+          '<'
+        );
+      this.tlOne.restart();
+    } else if (id === 2) {
+      let backgroundTwo = '.secondRow';
+      let textTwo = '.secondRowText';
+      let iconTwo = '.iconTwo';
 
-    this.tl.restart();
+      this.tlTwo
+        .to(backgroundTwo, {
+          backgroundColor: '#2929cc',
+        })
+        .to(
+          textTwo,
+          {
+            color: '#fff',
+          },
+          '<'
+        )
+        .to(
+          iconTwo,
+          {
+            autoAlpha: 1,
+          },
+          '<'
+        );
+      this.tlTwo.restart();
+    } else if (id === 3) {
+      let backgroundThree = '.thirdRow';
+      let textThree = '.thirdRowText';
+      let iconThree = '.iconThree';
+
+      this.tlThree
+        .to(backgroundThree, {
+          backgroundColor: '#2929cc',
+        })
+        .to(
+          textThree,
+          {
+            color: '#fff',
+          },
+          '<'
+        )
+        .to(
+          iconThree,
+          {
+            autoAlpha: 1,
+          },
+          '<'
+        );
+      this.tlThree.restart();
+    }
   }
 
-  fadeOut() {
-    this.tl.reverse();
+  fadeOut(id: number) {
+    if (id === 1) {
+      this.tlOne.reverse();
+    } else if (id === 2) {
+      this.tlTwo.reverse();
+    } else if (id === 3) {
+      this.tlThree.reverse();
+    }
   }
 }

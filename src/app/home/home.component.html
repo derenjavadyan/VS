@@ -112,24 +112,70 @@
 <div class="container">
   <section class="container container__tool-tech-main">
     <div
-      class="container__tool-tech-box flex"
-      (mouseenter)="fadeIn()"
-      (mouseleave)="fadeOut()"
+      class="firstRow container__tool-tech-box flex"
+      (mouseenter)="fadeIn(1)"
+      (mouseleave)="fadeOut(1)"
     >
-      <p class="containercontaimer__box-title">Programming languages</p>
+      <p class="fistRowText containercontaimer__box-title">
+        Programming languages
+      </p>
       <div class="container__tool-tech-icons flex">
-        <div class="techIcon container__net"></div>
-        <div class="techIcon container__react"></div>
-        <div class="techIcon container__js"></div>
-        <div class="techIcon container__python"></div>
-        <div class="techIcon container__c-plus"></div>
-        <div class="techIcon container__html-css"></div>
-        <div class="techIcon container__php"></div>
-        <div class="techIcon container__laravel"></div>
+        <div class="techIcon iconOne container__net"></div>
+        <div class="techIcon iconOne container__react"></div>
+        <div class="techIcon iconOne container__js"></div>
+        <div class="techIcon iconOne container__python"></div>
+        <div class="techIcon iconOne container__c-plus"></div>
+        <div class="techIcon iconOne container__html-css"></div>
+        <div class="techIcon iconOne container__php"></div>
+        <div class="techIcon iconOne container__laravel"></div>
       </div>
-      <p class="container__tool-tech-desc">
+      <p class="fistRowText container__tool-tech-desc">
         .NET/.NET Core, React JS, JS, Python, C++, PHP, HTML/CSS, Laravel
       </p>
+    </div>
+
+    <div
+      class="secondRow container__tool-tech-box flex"
+      (mouseenter)="fadeIn(2)"
+      (mouseleave)="fadeOut(2)"
+    >
+      <p class="secondRowText containercontaimer__box-title">
+        Mobile development
+      </p>
+      <div class="container__tool-tech-icons flex">
+        <div class="techIcon iconTwo container__xamarin"></div>
+        <div class="techIcon iconTwo container__kotlin"></div>
+        <div class="techIcon iconTwo container__swift"></div>
+        <div class="techIcon iconTwo container__react"></div>
+        <div class="techIcon iconTwo container__obj-c"></div>
+      </div>
+      <p class="secondRowText container__tool-tech-desc">
+        Xamarin, Kotlin, Swift, React Native, Objective C
+      </p>
+    </div>
+
+    <div
+      class="thirdRow container__tool-tech-box flex"
+      (mouseenter)="fadeIn(3)"
+      (mouseleave)="fadeOut(3)"
+    >
+      <p class="thirdRowText containercontaimer__box-title">AI/ML</p>
+      <div class="container__tool-tech-icons flex">
+        <div class="techIcon iconThree container__python"></div>
+        <div class="techIcon iconThree container__c-plus"></div>
+        <div class="techIcon iconThree container__c"></div>
+      </div>
+      <p class="thirdRowText container__tool-tech-desc">Python, C++, C</p>
+    </div>
+
+    <div class="container__tool-tech-description-wrapper flex">
+      <div class="container__tool-tech-description-wrapper-dummy"></div>
+      <div class="container__tool-tech-description-wrapper-text">
+        <p class="container__tool-tech-description-wrappper-paragraph">
+          We are continuously expanding our technology knowledge and skills to
+          meet the growing market demand and make our products innovative.
+        </p>
+      </div>
     </div>
   </section>
 </div>

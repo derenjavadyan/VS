@@ -103,7 +103,7 @@
     margin: 5.6rem 0;
   }
   &__title-line {
-    margin-left: 84rem;
+    margin-left: 96rem;
   }
 
   &__title {
@@ -274,6 +274,7 @@
     border-top: 1px solid $black;
     border-bottom: 1px solid $black;
     padding: 0 16px;
+    margin-bottom: -1px;
   }
 
   &__net {
@@ -341,8 +342,81 @@
     background-repeat: no-repeat;
     background-size: cover;
   }
+
+  &__xamarin {
+    background-image: url("../../assets/svg/icons/tools-tech/xamarin.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__kotlin {
+    background-image: url("../../assets/svg/icons/tools-tech/kotlin.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__swift {
+    background-image: url("../../assets/svg/icons/tools-tech/swift.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__obj-c {
+    background-image: url("../../assets/svg/icons/tools-tech/onb-c.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__c {
+    background-image: url("../../assets/svg/icons/tools-tech/c.svg");
+    width: 4rem;
+    height: 4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
-.techIcon {
+.techOne,
+.iconOne,
+.iconTwo,
+.iconThree {
   visibility: hidden;
+}
+
+.container {
+  &__tool-tech-description-wrapper {
+    margin-top: 4rem;
+  }
+
+  &__tool-tech-description-wrapper-dummy {
+    flex: 6;
+  }
+
+  &__tool-tech-description-wrapper-text {
+    flex: 6;
+  }
+
+  &__tool-tech-description-wrappper-paragraph {
+    max-width: 29.4rem;
+
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: $black;
+  }
 }
