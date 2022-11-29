@@ -202,8 +202,8 @@ export class HomeComponent implements OnInit {
     gsap
       .timeline()
       .to('span', {
-        y: '23 px',
-        duration: 1.5,
+        y: '18 px',
+        duration: 2,
         ease: 'expo.out',
         stagger: 0.1,
       })
@@ -213,23 +213,19 @@ export class HomeComponent implements OnInit {
   }
 
   scale() {
-    return new Promise((resolve) => {
-      gsap.to('.absolute', {
-        duration: 1.5,
-        ease: 'expo-out',
-        scaleY: 0,
-        transformOrigin: '0% 0%',
-        onComplete: resolve,
-      });
+    gsap.to('.absolute', {
+      duration: 1.5,
+      ease: 'expo-out',
+      scaleY: 0,
+      transformOrigin: '100% 100%',
     });
   }
-}
 
-// scale() {
-//   gsap.to('.absolute', {
-//     duration: 1.5,
-//     ease: 'expo-out',
-//     scaleY: 0,
-//     transformOrigin: '0% 0%',
-//   });
-// }
+  fadeService(background: string, text: string, icon: string) {
+    this.animation.fadeIn(background, text, icon);
+  }
+
+  fadeOutService() {
+    this.animation.fadeOut();
+  }
+}

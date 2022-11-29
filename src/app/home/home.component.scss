@@ -416,7 +416,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 16px;
     color: $black;
   }
 }
@@ -452,6 +452,10 @@
   &__fields {
     flex: 6;
   }
+}
+
+#taget > * + * {
+  margin-top: 0.01rem;
 }
 
 span {
