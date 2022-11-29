@@ -171,11 +171,35 @@
     <div class="container__tool-tech-description-wrapper flex">
       <div class="container__tool-tech-description-wrapper-dummy"></div>
       <div class="container__tool-tech-description-wrapper-text">
-        <p class="container__tool-tech-description-wrappper-paragraph">
-          We are continuously expanding our technology knowledge and skills to
-          meet the growing market demand and make our products innovative.
+        <p
+          id="taget"
+          class="container__tool-tech-description-wrappper-paragraph"
+          (click)="spanTrigger()"
+        >
+          <span> <span>We are continuously expanding our</span><br /> </span>
+          <span>
+            <span>technology knowledge and skills to meet</span> <br />
+          </span>
+          <span><span>the growing market demand and make</span></span>
+          <span><span>our products innovative.</span></span>
         </p>
       </div>
     </div>
   </section>
 </div>
+
+<div class="container container__contact">
+  <div class="container__contact-title-line">
+    <h1 class="container__contact-title">Contact</h1>
+  </div>
+</div>
+<div class="container__contact-line"></div>
+
+<div class="container">
+  <div class="container__contact-wrapper flex">
+    <div class="container__map"></div>
+    <div class="container__fields"></div>
+  </div>
+</div>
+
+<div (click)="scale()" class="absolute"></div>

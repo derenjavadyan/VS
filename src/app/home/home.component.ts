@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { timeStamp } from 'console';
 import { gsap } from 'gsap';
 import { AnimationService } from '../../service/animations/animation.service';
 
@@ -198,4 +197,39 @@ export class HomeComponent implements OnInit {
       this.tlThree.reverse();
     }
   }
+
+  spanTrigger() {
+    gsap
+      .timeline()
+      .to('span', {
+        y: '23 px',
+        duration: 1.5,
+        ease: 'expo.out',
+        stagger: 0.1,
+      })
+      .to('.container__tool-tech-description-wrapper-text', {
+        autoAlpha: 0,
+      });
+  }
+
+  scale() {
+    return new Promise((resolve) => {
+      gsap.to('.absolute', {
+        duration: 1.5,
+        ease: 'expo-out',
+        scaleY: 0,
+        transformOrigin: '0% 0%',
+        onComplete: resolve,
+      });
+    });
+  }
 }
+
+// scale() {
+//   gsap.to('.absolute', {
+//     duration: 1.5,
+//     ease: 'expo-out',
+//     scaleY: 0,
+//     transformOrigin: '0% 0%',
+//   });
+// }
