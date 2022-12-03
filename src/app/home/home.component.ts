@@ -111,7 +111,6 @@ export class HomeComponent implements OnInit {
   tlOne = gsap.timeline();
   tlTwo = gsap.timeline();
   tlThree = gsap.timeline();
-  ngOnInit() {}
 
   fadeIn(id: number) {
     if (id === 1) {
@@ -221,11 +220,26 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  ngOnInit() {
+    this.addEventListeners();
+  }
+
   fadeService(background: string, text: string, icon: string) {
     this.animation.fadeIn(background, text, icon);
   }
 
   fadeOutService() {
     this.animation.fadeOut();
+  }
+
+  onMouseWheel(event: any) {
+    const { deltaY } = event;
+    console.log(deltaY);
+  }
+  addEventListeners() {
+    window.addEventListener('wheel', this.onMouseWheel);
+  }
+  removeEventListeners() {
+    window.removeEventListener('mousewheel', this.onMouseWheel);
   }
 }

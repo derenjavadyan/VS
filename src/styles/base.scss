@@ -37,3 +37,13 @@ body {
   display: flex;
   gap: 24px;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 24px;
+}
+
+.grid-center {
+  grid-column: 7/-1;
+}
