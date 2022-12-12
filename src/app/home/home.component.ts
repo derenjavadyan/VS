@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { gsap } from 'gsap';
 import { AnimationService } from '../../service/animations/animation.service';
+declare var Splitting: any;
 
 interface WeDo {
   serviceName: string;
@@ -11,12 +12,19 @@ interface serviceParagraphs {
   paragraph: string;
 }
 
+interface scroll {
+  current: number;
+  target: number;
+  last: number;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('target') target: any;
   public weDo: WeDo[] = [
     {
       serviceName: 'FULL PRODUCT DEVELOPMENT',
@@ -107,7 +115,12 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor(private animation: AnimationService) {}
+  public scroll: scroll = {
+    current: 0,
+    target: 0,
+    last: 0,
+  };
+
   tlOne = gsap.timeline();
   tlTwo = gsap.timeline();
   tlThree = gsap.timeline();
@@ -220,8 +233,28 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  public onMouseWheelEvent = this.onMouseWheel.bind(this);
+
+  constructor(private animation: AnimationService) {}
+
   ngOnInit() {
-    this.addEventListeners();
+    this.update();
+    console.log(this.update());
+  }
+
+  ngAfterViewInit(): void {
+    let myTarget = this.target.nativeElement;
+    let results = Splitting({ target: myTarget, by: 'liness' });
+  }
+
+  spanStagger() {
+    gsap.to('.word, .whitespace', {
+      y: '18 px',
+      duration: 2,
+      ease: 'expo.out',
+      stagger: 0.1,
+      autoAlpha: 0,
+    });
   }
 
   fadeService(background: string, text: string, icon: string) {
@@ -234,12 +267,22 @@ export class HomeComponent implements OnInit {
 
   onMouseWheel(event: any) {
     const { deltaY } = event;
-    console.log(deltaY);
+    this.scroll.target += deltaY;
   }
   addEventListeners() {
-    window.addEventListener('wheel', this.onMouseWheel);
+    window.addEventListener('wheel', this.onMouseWheelEvent);
   }
   removeEventListeners() {
-    window.removeEventListener('mousewheel', this.onMouseWheel);
+    window.removeEventListener('mousewheel', this.onMouseWheelEvent);
+  }
+
+  update() {
+    requestAnimationFrame(this.update.bind(this));
+    this.scroll.current = gsap.utils.interpolate(
+      this.scroll.current,
+      this.scroll.target,
+      0.1
+    );
+    console.log(this.scroll.current);
   }
 }
