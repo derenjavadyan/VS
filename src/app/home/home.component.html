@@ -1,217 +1,212 @@
-<div class="back-color-gif">
-  <div class="container">
-    <section class="container__hero">
-      <header class="container__header flex">
-        <div class="container__logo-wrap">
-          <div class="container__logo"></div>
-        </div>
-        <div class="container__links">
-          <ul class="container__link-ul">
-            <li class="container__link"><a href="">We do</a></li>
-            <li class="container__link"><a href="">Industry focus</a></li>
-            <li class="container__link"><a href="">Tools & technology</a></li>
-            <li class="container__link"><a href="">Contact</a></li>
-          </ul>
-        </div>
-      </header>
-      <div class="container__menu-social">
-        <div class="container__menu"></div>
-        <div class="container__social">
-          <div class="container__facebook"></div>
-          <div class="container__linkedin"></div>
-        </div>
+<body #body>
+  <main #main>
+    <div class="back-color-gif">
+      <div class="container">
+        <section class="container__hero">
+          <header class="container__header flex">
+            <div class="container__logo-wrap">
+              <div class="container__logo"></div>
+            </div>
+            <div class="container__links">
+              <ul class="container__link-ul">
+                <li class="container__link"><a href="">We do</a></li>
+                <li class="container__link"><a href="">Industry focus</a></li>
+                <li class="container__link">
+                  <a href="">Tools & technology</a>
+                </li>
+                <li class="container__link"><a href="">Contact</a></li>
+              </ul>
+            </div>
+          </header>
+          <div class="container__menu-social">
+            <div class="container__menu"></div>
+            <div class="container__social">
+              <div class="container__facebook"></div>
+              <div class="container__linkedin"></div>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
-</div>
-
-<div class="back-color">
-  <div class="container__we-do">
-    <div class="container__title-line">
-      <h1 class="container__title">we do</h1>
     </div>
-    <div class="container__line"></div>
-  </div>
-</div>
-
-<div class="back-color">
-  <div class="container">
-    <section class="container__we-do-section">
-      <div class="container__service" *ngFor="let name of weDo">
-        <h2 class="container__service-name">
-          {{ name.serviceName | uppercase }}
-        </h2>
+    <div class="back-color">
+      <div class="container__we-do">
+        <div class="container__title-line">
+          <h1 class="container__title">we do</h1>
+        </div>
+        <div class="container__line"></div>
+      </div>
+    </div>
+    <div class="back-color">
+      <div class="container">
+        <section class="container__we-do-section">
+          <div class="container__service" *ngFor="let name of weDo">
+            <h2 class="container__service-name">
+              {{ name.serviceName | uppercase }}
+            </h2>
+            <div
+              class="container__for-loop"
+              *ngFor="let text of name.serviceParagraphs; let i = index"
+            >
+              <p class="container__service-paragraph">
+                {{ text.paragraph }}
+              </p>
+              <div
+                class="container__service-sign"
+                *ngIf="i !== name.serviceParagraphs.length - 1"
+              ></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="container container__industry-focus">
+      <div class="container__ind-foc-title-line">
+        <h1 class="container__ind-foc-title">industry focus</h1>
+      </div>
+    </div>
+    <div class="container__ind-foc-line"></div>
+    <div class="container">
+      <section class="container__ind-foc flex">
+        <div class="container__focuses">
+          <div class="container__focus">
+            <ul>
+              <li>e — GOV</li>
+              <li>AI/ML</li>
+            </ul>
+            <ul>
+              <li>Insuarance</li>
+              <li>e — Learning</li>
+            </ul>
+            <ul>
+              <li>Retail</li>
+              <li>And more</li>
+            </ul>
+          </div>
+        </div>
+        <div class="container__desc">
+          <div class="container__animation"></div>
+          <div class="container__text">
+            <div class="container__text-one">
+              <p>
+                We have already covered these industries and gained core
+                business knowledge and technology expertise, but our services
+                are not limited by theme only.
+              </p>
+            </div>
+            <div class="container__text-two">
+              <p>
+                We are open to discuss and discover new areas and industry
+                niches.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="container container__tool-tech">
+      <div class="container__tool-tech-title-line">
+        <h1 class="container__tool-tech-title">tools & <br />technology</h1>
+      </div>
+    </div>
+    <div class="container">
+      <section class="container container__tool-tech-main">
         <div
-          class="container__for-loop"
-          *ngFor="let text of name.serviceParagraphs; let i = index"
+          class="firstRow container__tool-tech-box flex"
+          (mouseenter)="fadeIn(1)"
+          (mouseleave)="fadeOut(1)"
         >
-          <p class="container__service-paragraph">
-            {{ text.paragraph }}
+          <p class="fistRowText containercontaimer__box-title">
+            Programming languages
           </p>
-          <div
-            class="container__service-sign"
-            *ngIf="i !== name.serviceParagraphs.length - 1"
-          ></div>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
-
-<div class="container container__industry-focus">
-  <div class="container__ind-foc-title-line">
-    <h1 class="container__ind-foc-title">industry focus</h1>
-  </div>
-</div>
-<div class="container__ind-foc-line"></div>
-
-<div class="container">
-  <section class="container__ind-foc flex">
-    <div class="container__focuses">
-      <div class="container__focus">
-        <ul>
-          <li>e — GOV</li>
-          <li>AI/ML</li>
-        </ul>
-        <ul>
-          <li>Insuarance</li>
-          <li>e — Learning</li>
-        </ul>
-        <ul>
-          <li>Retail</li>
-          <li>And more</li>
-        </ul>
-      </div>
-    </div>
-    <div class="container__desc">
-      <div class="container__animation"></div>
-      <div class="container__text">
-        <div class="container__text-one">
-          <p>
-            We have already covered these industries and gained core business
-            knowledge and technology expertise, but our services are not limited
-            by theme only.
+          <div class="container__tool-tech-icons flex">
+            <div class="techIcon iconOne container__net"></div>
+            <div class="techIcon iconOne container__react"></div>
+            <div class="techIcon iconOne container__js"></div>
+            <div class="techIcon iconOne container__python"></div>
+            <div class="techIcon iconOne container__c-plus"></div>
+            <div class="techIcon iconOne container__html-css"></div>
+            <div class="techIcon iconOne container__php"></div>
+            <div class="techIcon iconOne container__laravel"></div>
+          </div>
+          <p class="fistRowText container__tool-tech-desc">
+            .NET/.NET Core, React JS, JS, Python, C++, PHP, HTML/CSS, Laravel
           </p>
         </div>
-        <div class="container__text-two">
-          <p>
-            We are open to discuss and discover new areas and industry niches.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<div class="container container__tool-tech">
-  <div class="container__tool-tech-title-line">
-    <h1 class="container__tool-tech-title">tools & <br />technology</h1>
-  </div>
-</div>
-
-<div class="container">
-  <section class="container container__tool-tech-main">
-    <div
-      class="firstRow container__tool-tech-box flex"
-      (mouseenter)="fadeIn(1)"
-      (mouseleave)="fadeOut(1)"
-    >
-      <p class="fistRowText containercontaimer__box-title">
-        Programming languages
-      </p>
-      <div class="container__tool-tech-icons flex">
-        <div class="techIcon iconOne container__net"></div>
-        <div class="techIcon iconOne container__react"></div>
-        <div class="techIcon iconOne container__js"></div>
-        <div class="techIcon iconOne container__python"></div>
-        <div class="techIcon iconOne container__c-plus"></div>
-        <div class="techIcon iconOne container__html-css"></div>
-        <div class="techIcon iconOne container__php"></div>
-        <div class="techIcon iconOne container__laravel"></div>
-      </div>
-      <p class="fistRowText container__tool-tech-desc">
-        .NET/.NET Core, React JS, JS, Python, C++, PHP, HTML/CSS, Laravel
-      </p>
-    </div>
-
-    <div
-      class="secondRow container__tool-tech-box flex"
-      (mouseenter)="fadeIn(2)"
-      (mouseleave)="fadeOut(2)"
-    >
-      <p class="secondRowText containercontaimer__box-title">
-        Mobile development
-      </p>
-      <div class="container__tool-tech-icons flex">
-        <div class="techIcon iconTwo container__xamarin"></div>
-        <div class="techIcon iconTwo container__kotlin"></div>
-        <div class="techIcon iconTwo container__swift"></div>
-        <div class="techIcon iconTwo container__react"></div>
-        <div class="techIcon iconTwo container__obj-c"></div>
-      </div>
-      <p class="secondRowText container__tool-tech-desc">
-        Xamarin, Kotlin, Swift, React Native, Objective C
-      </p>
-    </div>
-
-    <div
-      class="thirdRow container__tool-tech-box flex"
-      (mouseenter)="fadeIn(3)"
-      (mouseleave)="fadeOut(3)"
-    >
-      <p class="thirdRowText containercontaimer__box-title">AI/ML</p>
-      <div class="container__tool-tech-icons flex">
-        <div class="techIcon iconThree container__python"></div>
-        <div class="techIcon iconThree container__c-plus"></div>
-        <div class="techIcon iconThree container__c"></div>
-      </div>
-      <p class="thirdRowText container__tool-tech-desc">Python, C++, C</p>
-    </div>
-
-    <div class="container__tool-tech-description-wrapper flex">
-      <div class="container__tool-tech-description-wrapper-dummy"></div>
-      <div class="container__tool-tech-description-wrapper-text">
-        <p
-          id="taget"
-          class="container__tool-tech-description-wrappper-paragraph"
-          (click)="spanTrigger()"
+        <div
+          class="secondRow container__tool-tech-box flex"
+          (mouseenter)="fadeIn(2)"
+          (mouseleave)="fadeOut(2)"
         >
-          <span> <span>We are continuously expanding our</span><br /> </span>
-          <span>
-            <span>technology knowledge and skills to meet</span> <br />
-          </span>
-          <span><span>the growing market demand and make</span></span>
-          <span><span>our products innovative.</span></span>
-        </p>
+          <p class="secondRowText containercontaimer__box-title">
+            Mobile development
+          </p>
+          <div class="container__tool-tech-icons flex">
+            <div class="techIcon iconTwo container__xamarin"></div>
+            <div class="techIcon iconTwo container__kotlin"></div>
+            <div class="techIcon iconTwo container__swift"></div>
+            <div class="techIcon iconTwo container__react"></div>
+            <div class="techIcon iconTwo container__obj-c"></div>
+          </div>
+          <p class="secondRowText container__tool-tech-desc">
+            Xamarin, Kotlin, Swift, React Native, Objective C
+          </p>
+        </div>
+        <div
+          class="thirdRow container__tool-tech-box flex"
+          (mouseenter)="fadeIn(3)"
+          (mouseleave)="fadeOut(3)"
+        >
+          <p class="thirdRowText containercontaimer__box-title">AI/ML</p>
+          <div class="container__tool-tech-icons flex">
+            <div class="techIcon iconThree container__python"></div>
+            <div class="techIcon iconThree container__c-plus"></div>
+            <div class="techIcon iconThree container__c"></div>
+          </div>
+          <p class="thirdRowText container__tool-tech-desc">Python, C++, C</p>
+        </div>
+        <div class="container__tool-tech-description-wrapper flex">
+          <div class="container__tool-tech-description-wrapper-dummy"></div>
+          <div class="container__tool-tech-description-wrapper-text">
+            <p
+              id="taget"
+              class="container__tool-tech-description-wrappper-paragraph"
+              (click)="spanTrigger()"
+            >
+              <span>
+                <span>We are continuously expanding our</span><br />
+              </span>
+              <span>
+                <span>technology knowledge and skills to meet</span> <br />
+              </span>
+              <span><span>the growing market demand and make</span></span>
+              <span><span>our products innovative.</span></span>
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="container container__contact">
+      <div class="container__contact-title-line">
+        <h1 class="container__contact-title">Contact</h1>
       </div>
     </div>
-  </section>
-</div>
-
-<div class="container container__contact">
-  <div class="container__contact-title-line">
-    <h1 class="container__contact-title">Contact</h1>
-  </div>
-</div>
-<div class="container__contact-line"></div>
-
-<div class="container">
-  <div class="container__contact-wrapper flex">
-    <div class="container__map"></div>
-    <div class="container__fields"></div>
-  </div>
-</div>
-
-<div class="container container__demo">
-  <div class="container__demo-title-line grid">
-    <h1 class="container__demo-title grid-center">Contact</h1>
-  </div>
-</div>
-
-<div #target id="target" (click)="spanStagger()">
-  We have already covered these industries and gained core business <br />
-  knowledge and technology expertise, but our services are not limited by theme
-  only.
-</div>
-<!-- <div class="container__contact-line grid grid-center"></div> -->
-<div class="absolute"></div>
+    <div class="container__contact-line"></div>
+    <div class="container">
+      <div class="container__contact-wrapper flex">
+        <div class="container__map"></div>
+        <div class="container__fields"></div>
+      </div>
+    </div>
+    <div class="container container__demo">
+      <div class="container__demo-title-line grid">
+        <h1 class="container__demo-title grid-center">Contact</h1>
+      </div>
+    </div>
+    <div #target id="target" (click)="spanStagger()">
+      We have already covered these industries and gained core business <br />
+      knowledge and technology expertise, but our services are not limited by
+      theme only.
+    </div>
+    <div class="absolute"></div>
+  </main>
+</body>

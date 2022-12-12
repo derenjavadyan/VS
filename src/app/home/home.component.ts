@@ -25,6 +25,8 @@ interface scroll {
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('target') target: any;
+  @ViewChild('body') body: any;
+  @ViewChild('main') main: any;
   public weDo: WeDo[] = [
     {
       serviceName: 'FULL PRODUCT DEVELOPMENT',
@@ -233,14 +235,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public onMouseWheelEvent = this.onMouseWheel.bind(this);
-
   constructor(private animation: AnimationService) {}
 
-  ngOnInit() {
-    this.update();
-    console.log(this.update());
-  }
+  ngOnInit() {}
 
   ngAfterViewInit(): void {
     let myTarget = this.target.nativeElement;
@@ -265,24 +262,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.animation.fadeOut();
   }
 
-  onMouseWheel(event: any) {
-    const { deltaY } = event;
-    this.scroll.target += deltaY;
-  }
-  addEventListeners() {
-    window.addEventListener('wheel', this.onMouseWheelEvent);
-  }
-  removeEventListeners() {
-    window.removeEventListener('mousewheel', this.onMouseWheelEvent);
-  }
-
-  update() {
-    requestAnimationFrame(this.update.bind(this));
-    this.scroll.current = gsap.utils.interpolate(
-      this.scroll.current,
-      this.scroll.target,
-      0.1
-    );
-    console.log(this.scroll.current);
-  }
+  //Smooth Scrolling
 }

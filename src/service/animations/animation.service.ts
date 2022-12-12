@@ -2,30 +2,14 @@ import { Injectable } from '@angular/core';
 import { gsap } from 'gsap';
 import { Subject } from 'rxjs';
 
-interface scroll {
-  current: number;
-  target: number;
-  last: number;
-}
-
 @Injectable({
   providedIn: 'root',
 })
 export class AnimationService {
-  updateSub = new Subject();
-  public scroll: scroll = {
-    current: 0,
-    target: 0,
-    last: 0,
-  };
-  constructor() {
-    this.update();
-  }
+  constructor() {}
 
   update() {
     let updateFrame = window.requestAnimationFrame(this.update.bind(this));
-    this.updateSub.next(updateFrame);
-    // console.log(updateFrame);
   }
 
   //animation
