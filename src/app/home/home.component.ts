@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('target') target: any;
   @ViewChild('body') body: any;
   @ViewChild('main') main: any;
+
   public weDo: WeDo[] = [
     {
       serviceName: 'FULL PRODUCT DEVELOPMENT',
@@ -116,12 +117,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       ],
     },
   ];
-
-  public scroll: scroll = {
-    current: 0,
-    target: 0,
-    last: 0,
-  };
 
   tlOne = gsap.timeline();
   tlTwo = gsap.timeline();
@@ -240,8 +235,48 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit(): void {
-    let myTarget = this.target.nativeElement;
-    let results = Splitting({ target: myTarget, by: 'liness' });
+    //splitting
+    let results = Splitting({
+      target: this.target.nativeElement,
+      by: 'words',
+    });
+
+    //scrolling
+    let sx = 0;
+    let sy = 0;
+
+    let dx = sx;
+    let dy = sx;
+
+    this.body.nativeElement.style.height =
+      this.main.nativeElement.clientHeight + 'px';
+
+    this.main.nativeElement.style.position = 'fixed';
+    this.main.nativeElement.style.top = 0;
+    this.main.nativeElement.style.left = 0;
+
+    window.addEventListener('wheel', scroll);
+
+    function scroll() {
+      sx = window.pageXOffset;
+      sy = window.pageYOffset;
+    }
+
+    window.requestAnimationFrame(render);
+    let secondThis = this;
+
+    function render() {
+      dx = gsap.utils.interpolate(dx, sx, 0.05);
+      dy = gsap.utils.interpolate(dy, sy, 0.05);
+
+      dx = Math.floor(dx * 100) / 100;
+      dy = Math.floor(dy * 100) / 100;
+
+      secondThis.main.nativeElement.style.transform = `translate(-${dx}px, -${dy}px)`;
+      window.requestAnimationFrame(render);
+    }
+
+    console.log();
   }
 
   spanStagger() {
