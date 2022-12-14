@@ -27,6 +27,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('target') target: any;
   @ViewChild('body') body: any;
   @ViewChild('main') main: any;
+  @ViewChild('paragraph') paragraph: any;
+
+  public observer?: any;
 
   public weDo: WeDo[] = [
     {
@@ -246,7 +249,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     let sy = 0;
 
     let dx = sx;
-    let dy = sx;
+    let dy = sy;
 
     this.body.nativeElement.style.height =
       this.main.nativeElement.clientHeight + 'px';
@@ -262,21 +265,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
       sy = window.pageYOffset;
     }
 
-    window.requestAnimationFrame(render);
-    let secondThis = this;
-
-    function render() {
-      dx = gsap.utils.interpolate(dx, sx, 0.05);
-      dy = gsap.utils.interpolate(dy, sy, 0.05);
+    const render = () => {
+      dx = gsap.utils.interpolate(dx, sx, 0.1);
+      dy = gsap.utils.interpolate(dy, sy, 0.1);
 
       dx = Math.floor(dx * 100) / 100;
       dy = Math.floor(dy * 100) / 100;
 
-      secondThis.main.nativeElement.style.transform = `translate(-${dx}px, -${dy}px)`;
+      this.main.nativeElement.style.transform = `translate(-${dx}px, -${dy}px)`;
       window.requestAnimationFrame(render);
-    }
+    };
+    window.requestAnimationFrame(render);
 
-    console.log();
+    //IntersectionObserver
+    this.createObserver();
   }
 
   spanStagger() {
@@ -297,5 +299,39 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.animation.fadeOut();
   }
 
-  //Smooth Scrolling
+  //Intersection Observer
+  animateIn() {
+    gsap.fromTo(
+      '.container__tool-tech-description-wrappper-paragraph',
+      {
+        autoAlpha: 0,
+      },
+      {
+        autoAlpha: 1,
+        duration: 1.5,
+        y: '-20px',
+      }
+    );
+  }
+  animateOut() {
+    gsap.set('.container__tool-tech-description-wrappper-paragraph', {
+      autoAlpha: 0,
+      y: '20px',
+    });
+  }
+
+  createObserver() {
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log('animateIn');
+          this.animateIn();
+        } else {
+          console.log('animateOut');
+          this.animateOut();
+        }
+      });
+    });
+    this.observer.observe(this.paragraph.nativeElement);
+  }
 }
