@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { gsap } from 'gsap';
 import { AnimationService } from '../../service/animations/animation.service';
 declare var Splitting: any;
@@ -27,7 +33,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('target') target: any;
   @ViewChild('body') body: any;
   @ViewChild('main') main: any;
-  @ViewChild('paragraph') paragraph: any;
+  @ViewChildren('paragraph') paragraph: any;
 
   public observer?: any;
 
@@ -258,7 +264,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.main.nativeElement.style.top = 0;
     this.main.nativeElement.style.left = 0;
 
-    window.addEventListener('wheel', scroll);
+    window.addEventListener('scroll', scroll);
 
     function scroll() {
       sx = window.pageXOffset;
@@ -309,14 +315,36 @@ export class HomeComponent implements OnInit, AfterViewInit {
       {
         autoAlpha: 1,
         duration: 1.5,
-        y: '-20px',
+        delay: 0.5,
+        y: '0px',
       }
     );
   }
   animateOut() {
     gsap.set('.container__tool-tech-description-wrappper-paragraph', {
       autoAlpha: 0,
-      y: '20px',
+      y: '40px',
+    });
+  }
+
+  animateIn2() {
+    gsap.fromTo(
+      '.container__text-one',
+      {
+        autoAlpha: 0,
+      },
+      {
+        autoAlpha: 1,
+        duration: 1.5,
+        delay: 0.5,
+        y: '0px',
+      }
+    );
+  }
+  animateOut2() {
+    gsap.set('.container__text-one', {
+      autoAlpha: 0,
+      y: '40px',
     });
   }
 
@@ -324,14 +352,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log('animateIn');
           this.animateIn();
+          this.animateIn2();
         } else {
-          console.log('animateOut');
           this.animateOut();
+          this.animateOut2();
         }
       });
     });
-    this.observer.observe(this.paragraph.nativeElement);
+
+    this.paragraph._results.map((element: any) =>
+      this.observer.observe(element.nativeElement)
+    );
   }
 }
