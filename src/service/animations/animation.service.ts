@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { gsap } from 'gsap';
-import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -41,4 +40,41 @@ export class AnimationService {
   fadeOut() {
     this.tl.reverse();
   }
+
+  //Observer
+  observer(host: any) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log('service enter');
+        } else {
+          console.log('service leave');
+        }
+      });
+      observer.observe(host.nativeElement);
+    });
+  }
+
+  animateIn(gClass: string) {
+    gsap.fromTo(
+      gClass,
+      {
+        autoAlpha: 0,
+        y: '40px',
+      },
+      {
+        autoAlpha: 1,
+        duration: 1.5,
+        delay: 0.5,
+        y: '0px',
+      }
+    );
+  }
+
+  // animateSet(gClass: string) {
+  //   gsap.set(gClass, {
+  //     autoAlpha: 0,
+  //     y: '40px',
+  //   });
+  // }
 }

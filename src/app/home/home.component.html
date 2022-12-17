@@ -66,7 +66,7 @@
     </div>
     <div class="container__ind-foc-line"></div>
     <div class="container">
-      <section class="container__ind-foc flex">
+      <section #sectionOne class="container__ind-foc flex">
         <div class="container__focuses">
           <div class="container__focus">
             <ul>
@@ -87,14 +87,14 @@
           <div class="container__animation"></div>
           <div class="container__text">
             <div class="container__text-one">
-              <p #paragraph>
+              <p #paragraph class="container__text-one-p">
                 We have already covered these industries and gained core
                 business knowledge and technology expertise, but our services
                 are not limited by theme only.
               </p>
             </div>
             <div class="container__text-two">
-              <p #paragraph>
+              <p #paragraph class="container__text-two-p">
                 We are open to discuss and discover new areas and industry
                 niches.
               </p>
@@ -109,7 +109,7 @@
       </div>
     </div>
     <div class="container">
-      <section class="container container__tool-tech-main">
+      <section #sectionTwo class="container container__tool-tech-main">
         <div
           class="firstRow container__tool-tech-box flex"
           (mouseenter)="fadeIn(1)"
@@ -168,7 +168,7 @@
           <div class="container__tool-tech-description-wrapper-dummy"></div>
           <div class="container__tool-tech-description-wrapper-text">
             <p
-              #paragraph
+              #paragraphTarget
               id="taget"
               class="container__tool-tech-description-wrappper-paragraph"
               (click)="spanTrigger()"

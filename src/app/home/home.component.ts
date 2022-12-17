@@ -33,9 +33,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('target') target: any;
   @ViewChild('body') body: any;
   @ViewChild('main') main: any;
-  @ViewChildren('paragraph') paragraph: any;
+  @ViewChild('paragraph') paragraph: any;
+  @ViewChild('paragraphTarget') paragraphTarget: any;
 
-  public observer?: any;
+  // public observer?: any;
 
   public weDo: WeDo[] = [
     {
@@ -263,6 +264,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.main.nativeElement.style.position = 'fixed';
     this.main.nativeElement.style.top = 0;
     this.main.nativeElement.style.left = 0;
+    this.main.nativeElement.style.right = 0;
 
     window.addEventListener('scroll', scroll);
 
@@ -284,7 +286,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     window.requestAnimationFrame(render);
 
     //IntersectionObserver
-    this.createObserver();
+    this.createObserver(
+      this.paragraphTarget,
+      '.container__tool-tech-description-wrappper-paragraph'
+    );
+    this.createObserver(this.paragraph, '.container__text-one-p');
   }
 
   spanStagger() {
@@ -348,21 +354,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  createObserver() {
-    this.observer = new IntersectionObserver((entries) => {
+  createObserver(element: any, gClass: string) {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          this.animateIn();
-          this.animateIn2();
-        } else {
-          this.animateOut();
-          this.animateOut2();
+          this.animation.animateIn(gClass);
         }
       });
     });
 
-    this.paragraph._results.map((element: any) =>
-      this.observer.observe(element.nativeElement)
-    );
+    // this.paragraph._results.map((element: any) =>
+    //   observer.observe(element.nativeElement)
+    // );
+
+    observer.observe(element.nativeElement);
   }
 }
