@@ -55,7 +55,7 @@ export class AnimationService {
     });
   }
 
-  animateIn(gClass: string) {
+  animateIn(gClass: any) {
     gsap.fromTo(
       gClass,
       {
@@ -69,6 +69,7 @@ export class AnimationService {
         y: '0px',
       }
     );
+    console.log(gClass);
   }
 
   // animateSet(gClass: string) {

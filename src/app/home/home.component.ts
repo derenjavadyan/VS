@@ -33,8 +33,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('target') target: any;
   @ViewChild('body') body: any;
   @ViewChild('main') main: any;
-  @ViewChild('paragraph') paragraph: any;
+  @ViewChildren('paragraph') paragraph: any;
   @ViewChild('paragraphTarget') paragraphTarget: any;
+  @ViewChild('#paragraphDiv') paragraphDiv: any;
 
   // public observer?: any;
 
@@ -286,11 +287,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     window.requestAnimationFrame(render);
 
     //IntersectionObserver
-    this.createObserver(
-      this.paragraphTarget,
-      '.container__tool-tech-description-wrappper-paragraph'
-    );
-    this.createObserver(this.paragraph, '.container__text-one-p');
+    // this.createObserver(
+    //   this.paragraphTarget,
+    //   '.container__tool-tech-description-wrappper-paragraph'
+    // );
+    // this.createObserver(this.paragraph, '.container__text-one-p');
+
+    this.createObserverMulti(this.paragraph);
+    console.log(this.paragraphDiv);
   }
 
   spanStagger() {
@@ -354,19 +358,39 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  createObserver(element: any, gClass: string) {
+  // createObserver(element: any, gClass: string) {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         this.animation.animateIn(gClass);
+  //       }
+  //     });
+  //   });
+
+  //   this.paragraph._results.map((element: any) =>
+  //     observer.observe(element.nativeElement)
+
+  //   );
+
+  //   observer.observe(element.nativeElement);
+  // }
+
+  //multi
+  createObserverMulti(element: any) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          this.animation.animateIn(gClass);
+          this.animation.animateIn(className);
         }
       });
     });
 
-    // this.paragraph._results.map((element: any) =>
-    //   observer.observe(element.nativeElement)
-    // );
+    element._results.map((element: any) =>
+      observer.observe(element.nativeElement)
+    );
 
-    observer.observe(element.nativeElement);
+    let className = element._results.map(
+      (element: any) => element.nativeElement.className
+    );
   }
 }
