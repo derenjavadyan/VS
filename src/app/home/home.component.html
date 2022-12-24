@@ -86,15 +86,15 @@
         <div class="container__desc">
           <div class="container__animation"></div>
           <div class="container__text">
-            <div #paragraphDiv class="container__text-one">
-              <p #paragraph class="container__text-one-p">
+            <div class="container__text-one">
+              <p appAppearing class="container__text-one-p">
                 We have already covered these industries and gained core
                 business knowledge and technology expertise, but our services
                 are not limited by theme only.
               </p>
             </div>
             <div class="container__text-two">
-              <p #paragraph class="container__text-two-p">
+              <p appAppearing class="container__text-two-p">
                 We are open to discuss and discover new areas and industry
                 niches.
               </p>
@@ -168,6 +168,8 @@
           <div class="container__tool-tech-description-wrapper-dummy"></div>
           <div class="container__tool-tech-description-wrapper-text">
             <p
+              appAppearing
+              [delay]="10"
               #paragraphTarget
               id="taget"
               class="container__tool-tech-description-wrappper-paragraph"
@@ -204,9 +206,11 @@
       </div>
     </div>
     <div #target id="target" (click)="spanStagger()">
-      We have already covered these industries and gained core business <br />
-      knowledge and technology expertise, but our services are not limited by
-      theme only.
+      <p>
+        We have already covered these industries and gained core business <br />
+        knowledge and technology expertise, but our services are not limited by
+        theme only.
+      </p>
     </div>
   </main>
 </body>

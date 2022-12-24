@@ -293,8 +293,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // );
     // this.createObserver(this.paragraph, '.container__text-one-p');
 
-    this.createObserverMulti(this.paragraph);
-    console.log(this.paragraphDiv);
+    // this.createObserverMulti(this.paragraph);
+    // console.log(this.paragraphDiv);
   }
 
   spanStagger() {
@@ -376,21 +376,36 @@ export class HomeComponent implements OnInit, AfterViewInit {
   // }
 
   //multi
-  createObserverMulti(element: any) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          this.animation.animateIn(className);
-        }
-      });
-    });
+  // createObserverMulti(element: any) {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.isIntersecting) {
+  //         gsap.fromTo(
+  //           targets,
+  //           {
+  //             autoAlpha: 0,
+  //             y: '40px',
+  //           },
+  //           {
+  //             autoAlpha: 1,
+  //             duration: 1.5,
+  //             delay: 0.5,
+  //             y: '0px',
+  //           }
+  //         );
+  //       }
+  //       console.log(targets);
+  //     });
+  //   });
 
-    element._results.map((element: any) =>
-      observer.observe(element.nativeElement)
-    );
+  //   element._results.map((element: any) =>
+  //     observer.observe(element.nativeElement)
+  //   );
 
-    let className = element._results.map(
-      (element: any) => element.nativeElement.className
-    );
-  }
+  //   let className = element._results.map(
+  //     (element: any) => element.nativeElement.className
+  //   );
+
+  //   let targets = gsap.utils.toArray(className);
+  // }
 }
