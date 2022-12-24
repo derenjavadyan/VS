@@ -94,7 +94,7 @@
               </p>
             </div>
             <div class="container__text-two">
-              <p appAppearing class="container__text-two-p">
+              <p appAppearing [delay]="0.5" class="container__text-two-p">
                 We are open to discuss and discover new areas and industry
                 niches.
               </p>
@@ -169,7 +169,7 @@
           <div class="container__tool-tech-description-wrapper-text">
             <p
               appAppearing
-              [delay]="10"
+              [className]="'span'"
               #paragraphTarget
               id="taget"
               class="container__tool-tech-description-wrappper-paragraph"
