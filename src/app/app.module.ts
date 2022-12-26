@@ -5,9 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AppearingDirective } from './gsap/appearing.directive';
+import { SplitterDirective } from './gsap/splitter.directive';
+import { ScrollingDirective } from './gsap/scrolling.directive';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AppearingDirective],
+  declarations: [AppComponent, HomeComponent, AppearingDirective, SplitterDirective, ScrollingDirective],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -5,10 +5,12 @@ import { gsap } from 'gsap';
   providedIn: 'root',
 })
 export class AnimationService {
+  //scrolling
+  public bodyScroll: any;
   constructor() {}
 
   update() {
-    let updateFrame = window.requestAnimationFrame(this.update.bind(this));
+    window.requestAnimationFrame(this.update.bind(this));
   }
 
   //animation
