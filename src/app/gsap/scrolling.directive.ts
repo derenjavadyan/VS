@@ -1,4 +1,10 @@
-import { Directive, AfterViewInit, ElementRef } from '@angular/core';
+import {
+  Directive,
+  AfterViewInit,
+  ElementRef,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { AnimationService } from '../../service/animations/animation.service';
 import { gsap } from 'gsap';
 
@@ -6,9 +12,11 @@ import { gsap } from 'gsap';
   selector: '[appScrolling]',
 })
 export class ScrollingDirective implements AfterViewInit {
+  @Output() body = new EventEmitter();
+  public bodyScroll?: any;
+
   constructor(private main: ElementRef, private animation: AnimationService) {}
   ngAfterViewInit(): void {
-    console.log('hi');
     let sx = 0;
     let sy = 0;
 
@@ -17,7 +25,10 @@ export class ScrollingDirective implements AfterViewInit {
 
     // this.body.nativeElement.style.height =
     //   this.main.nativeElement.clientHeight + 'px';
+
     this.animation.bodyScroll = this.main.nativeElement.clientHeight + 'px';
+    //Output
+    this.bodyScroll = this.main.nativeElement.clientHeight + 'px';
 
     this.main.nativeElement.style.position = 'fixed';
     this.main.nativeElement.style.top = 0;
@@ -43,4 +54,8 @@ export class ScrollingDirective implements AfterViewInit {
     };
     window.requestAnimationFrame(render);
   }
+
+  // bodyEmit() {
+  //   this.body.emit(this.bodyScroll);
+  // }
 }
