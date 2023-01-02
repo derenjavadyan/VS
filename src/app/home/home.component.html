@@ -1,5 +1,5 @@
 <body #body>
-  <main appScrolling #main>
+  <main appScrolling (body)="bodyScrolling($event)" #main>
     <div class="back-color-gif">
       <div class="container">
         <section class="container__hero">

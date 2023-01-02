@@ -243,9 +243,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit(): void {
-    this.body.nativeElement.style.height = this.animation.bodyScroll;
-
+    // this.body.nativeElement.style.height = this.animation.bodyScroll;
     //IntersectionObserver
+  }
+
+  bodyScrolling(e: any) {
+    this.body.nativeElement.style.height = e;
   }
 
   spanStagger() {

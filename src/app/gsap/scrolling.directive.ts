@@ -26,7 +26,7 @@ export class ScrollingDirective implements AfterViewInit {
     // this.body.nativeElement.style.height =
     //   this.main.nativeElement.clientHeight + 'px';
 
-    this.animation.bodyScroll = this.main.nativeElement.clientHeight + 'px';
+    // this.animation.bodyScroll = this.main.nativeElement.clientHeight + 'px';
     //Output
     this.bodyScroll = this.main.nativeElement.clientHeight + 'px';
 
@@ -53,9 +53,10 @@ export class ScrollingDirective implements AfterViewInit {
       window.requestAnimationFrame(render);
     };
     window.requestAnimationFrame(render);
+    this.bodyEmit();
   }
 
-  // bodyEmit() {
-  //   this.body.emit(this.bodyScroll);
-  // }
+  bodyEmit() {
+    this.body.emit(this.bodyScroll);
+  }
 }
