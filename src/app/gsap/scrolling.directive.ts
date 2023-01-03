@@ -13,9 +13,9 @@ import { gsap } from 'gsap';
 })
 export class ScrollingDirective implements AfterViewInit {
   @Output() body = new EventEmitter();
-  public bodyScroll?: any;
+  public bodyScroll?: string;
 
-  constructor(private main: ElementRef, private animation: AnimationService) {}
+  constructor(private main: ElementRef) {}
   ngAfterViewInit(): void {
     let sx = 0;
     let sy = 0;
@@ -23,12 +23,8 @@ export class ScrollingDirective implements AfterViewInit {
     let dx = sx;
     let dy = sy;
 
-    // this.body.nativeElement.style.height =
-    //   this.main.nativeElement.clientHeight + 'px';
-
-    // this.animation.bodyScroll = this.main.nativeElement.clientHeight + 'px';
-    //Output
     this.bodyScroll = this.main.nativeElement.clientHeight + 'px';
+    this.body.emit(this.bodyScroll);
 
     this.main.nativeElement.style.position = 'fixed';
     this.main.nativeElement.style.top = 0;
@@ -53,10 +49,5 @@ export class ScrollingDirective implements AfterViewInit {
       window.requestAnimationFrame(render);
     };
     window.requestAnimationFrame(render);
-    this.bodyEmit();
-  }
-
-  bodyEmit() {
-    this.body.emit(this.bodyScroll);
   }
 }

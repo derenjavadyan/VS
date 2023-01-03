@@ -242,10 +242,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {}
 
-  ngAfterViewInit(): void {
-    // this.body.nativeElement.style.height = this.animation.bodyScroll;
-    //IntersectionObserver
-  }
+  ngAfterViewInit(): void {}
 
   bodyScrolling(e: any) {
     this.body.nativeElement.style.height = e;
@@ -311,55 +308,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
       y: '40px',
     });
   }
-
-  // createObserver(element: any, gClass: string) {
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         this.animation.animateIn(gClass);
-  //       }
-  //     });
-  //   });
-
-  //   this.paragraph._results.map((element: any) =>
-  //     observer.observe(element.nativeElement)
-
-  //   );
-
-  //   observer.observe(element.nativeElement);
-  // }
-
-  //multi
-  // createObserverMulti(element: any) {
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         gsap.fromTo(
-  //           targets,
-  //           {
-  //             autoAlpha: 0,
-  //             y: '40px',
-  //           },
-  //           {
-  //             autoAlpha: 1,
-  //             duration: 1.5,
-  //             delay: 0.5,
-  //             y: '0px',
-  //           }
-  //         );
-  //       }
-  //       console.log(targets);
-  //     });
-  //   });
-
-  //   element._results.map((element: any) =>
-  //     observer.observe(element.nativeElement)
-  //   );
-
-  //   let className = element._results.map(
-  //     (element: any) => element.nativeElement.className
-  //   );
-
-  //   let targets = gsap.utils.toArray(className);
-  // }
 }
