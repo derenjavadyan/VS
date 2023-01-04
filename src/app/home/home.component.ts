@@ -1,11 +1,14 @@
 import {
   AfterViewInit,
   Component,
+  ElementRef,
   OnInit,
   ViewChild,
   ViewChildren,
+  Renderer2,
 } from '@angular/core';
 import { gsap } from 'gsap';
+import { OglService } from '../../service/ogl/ogl.service';
 import { AnimationService } from '../../service/animations/animation.service';
 
 interface WeDo {
@@ -17,24 +20,18 @@ interface serviceParagraphs {
   paragraph: string;
 }
 
-interface scroll {
-  current: number;
-  target: number;
-  last: number;
-}
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  @ViewChild('body') body: any;
-  @ViewChild('main') main: any;
-  @ViewChildren('paragraph') paragraph: any;
-  @ViewChild('paragraphTarget') paragraphTarget: any;
-
-  // public observer?: any;
+  @ViewChild('body') body!: ElementRef;
+  @ViewChild('main') main!: ElementRef;
+  @ViewChildren('paragraph') paragraph!: ElementRef;
+  @ViewChild('paragraphTarget') paragraphTarget!: ElementRef;
+  @ViewChild('test') test!: ElementRef;
+  @ViewChild('canv') canv!: ElementRef;
 
   public weDo: WeDo[] = [
     {
@@ -238,13 +235,23 @@ export class HomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  constructor(private animation: AnimationService) {}
+  constructor(
+    private animation: AnimationService,
+    private oglService: OglService
+  ) {}
 
   ngOnInit() {}
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    this.oglService.onResize();
+    this.oglService.createRenderer(this.canv.nativeElement);
+    this.oglService.createCamera();
+    this.oglService.createScene();
+    this.oglService.createCube();
+    this.oglService.update();
+  }
 
-  bodyScrolling(e: any) {
+  bodyScrolling(e: string) {
     this.body.nativeElement.style.height = e;
   }
 

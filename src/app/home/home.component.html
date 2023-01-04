@@ -1,5 +1,7 @@
 <body #body>
   <main appScrolling (body)="bodyScrolling($event)" #main>
+    <div #canv></div>
+
     <div class="back-color-gif">
       <div class="container">
         <section class="container__hero">
@@ -207,7 +209,8 @@
     </div>
     <div appSplitter id="target" (click)="spanStagger()">
       <p>
-        We have already covered these industries and gained core business <br />
+        We have already covered these industries and gained core business
+        <br />
         knowledge and technology expertise, but our services are not limited by
         theme only.
       </p>

@@ -5,7 +5,6 @@ import {
   Output,
   EventEmitter,
 } from '@angular/core';
-import { AnimationService } from '../../service/animations/animation.service';
 import { gsap } from 'gsap';
 
 @Directive({
