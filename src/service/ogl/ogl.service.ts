@@ -42,6 +42,8 @@ export class OglService {
 
   createRenderer(parent: ElementRef) {
     this.render.appendChild(parent, this.gl.canvas);
+    // this.gl.canvas.height = 500 + 'px';
+    // parent = this.gl.canvas;
   }
 
   createCamera() {

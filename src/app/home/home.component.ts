@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('paragraphTarget') paragraphTarget!: ElementRef;
   @ViewChild('test') test!: ElementRef;
   @ViewChild('canv') canv!: ElementRef;
+  @ViewChild('canvas') canvasRef!: ElementRef;
 
   public weDo: WeDo[] = [
     {
@@ -243,12 +244,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit(): void {
-    this.oglService.onResize();
-    this.oglService.createRenderer(this.canv.nativeElement);
-    this.oglService.createCamera();
-    this.oglService.createScene();
-    this.oglService.createCube();
-    this.oglService.update();
+    // this.oglService.onResize();
+    // this.oglService.createRenderer(this.canv.nativeElement);
+    // this.oglService.createCamera();
+    // this.oglService.createScene();
+    // this.oglService.createCube();
+    // this.oglService.update();
+
+    this.oglService.createRenderer(this.canvasRef.nativeElement);
   }
 
   bodyScrolling(e: string) {
