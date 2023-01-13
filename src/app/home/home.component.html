@@ -1,7 +1,5 @@
 <body #body>
   <main appScrolling (body)="bodyScrolling($event)" #main>
-    <div #canv></div>
-
     <div class="back-color-gif">
       <div class="container">
         <section class="container__hero">
@@ -215,6 +213,8 @@
         theme only.
       </p>
     </div>
-    <canvas #canvas id="canvas" style="height: 100%; width: 100%"></canvas>
+
+    <!-- <canvas #canvas id="canvas" style="height: 100%; width: 100%"></canvas> -->
   </main>
 </body>
+<div #canv class="canvas"></div>

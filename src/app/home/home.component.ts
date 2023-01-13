@@ -250,8 +250,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // this.oglService.createScene();
     // this.oglService.createCube();
     // this.oglService.update();
-
-    this.oglService.createRenderer(this.canvasRef.nativeElement);
+    // this.oglService.createRenderer(this.canvasRef.nativeElement);
   }
 
   bodyScrolling(e: string) {

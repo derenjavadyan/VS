@@ -8,9 +8,10 @@ import { AppearingDirective } from './gsap/appearing.directive';
 import { SplitterDirective } from './gsap/splitter.directive';
 import { ScrollingDirective } from './gsap/scrolling.directive';
 import { OglDirective } from './gsap/ogl.directive';
+import { OglComponent } from './home/ogl/ogl.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AppearingDirective, SplitterDirective, ScrollingDirective, OglDirective],
+  declarations: [AppComponent, HomeComponent, AppearingDirective, SplitterDirective, ScrollingDirective, OglDirective, OglComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
